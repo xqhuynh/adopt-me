@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"src/**/*.{js,jsx}\""
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/xqhuynh/adopt-me/issues"
   },
-  "homepage": "https://github.com/xqhuynh/adopt-me#readme"
+  "homepage": "https://github.com/xqhuynh/adopt-me#readme",
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  }
 }
