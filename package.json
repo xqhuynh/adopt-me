@@ -21,10 +21,14 @@
   "homepage": "https://github.com/xqhuynh/adopt-me#readme",
   "devDependencies": {
     "parcel": "^2.7.0",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "process": "^0.11.10"
   },
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  }
+  },
+  "browserslist": [
+    "last 2 Chrome versions"
+  ]
 }
