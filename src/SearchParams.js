@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Pet from "./Pet";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
@@ -8,6 +9,12 @@ const SearchParams = () => {
     const [breed, setBreed] = useState("");
     // Set empty array for breeds
     const breeds = [];
+    // Pets state
+    const [pets, setPets] = useState([])
+
+    useEffect(() => {
+        requestPets();
+    }, []);
 
     return (
         <div className="search-params">
