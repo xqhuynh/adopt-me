@@ -12,9 +12,19 @@ const SearchParams = () => {
     // Pets state
     const [pets, setPets] = useState([])
 
+    // Get pets on first render
     useEffect(() => {
         requestPets();
     }, []);
+
+    // function to fetch pets api
+    async function requestPets() {
+        const res = await fetch(
+            `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
+        );
+        const json = await res.json();
+        setPets(json.pets);
+    }
 
     return (
         <div className="search-params">
@@ -30,7 +40,7 @@ const SearchParams = () => {
                     />
                 </label>
 
-                {/* Drop down options */}
+                {/* Drop down options for animals */}
                 <label htmlFor="animal">
                     <select
                         id="animal"
@@ -54,7 +64,7 @@ const SearchParams = () => {
                     </select>
                 </label>
 
-                {/* Breed  */}
+                {/* Drop down options for breed */}
                 <label htmlFor="breed">
                     Breed
                     <select
@@ -76,6 +86,12 @@ const SearchParams = () => {
 
                 <button>Submit</button>
             </form>
+
+            {/* Map over pets */}
+            {
+                pets.map((pet) => (
+                    <Pet name={pet.name} animal={pet.animal} breed={pet.breed} key={pet.id} />
+                ))};
 
             {/* One way data-binding. Location passed from useState 
             <div>
