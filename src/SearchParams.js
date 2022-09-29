@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Pet from "./Pet";
+import useBreedList from "./useBreedList";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
@@ -7,8 +8,8 @@ const SearchParams = () => {
     const [location, setLocation] = useState("");
     const [animal, setAnimal] = useState("");
     const [breed, setBreed] = useState("");
-    // Set empty array for breeds
-    const breeds = [];
+    // Breeds list from useBreedList component
+    const [breeds] = useBreedList(animal);
     // Pets state
     const [pets, setPets] = useState([])
 
@@ -28,7 +29,11 @@ const SearchParams = () => {
 
     return (
         <div className="search-params">
-            <form>
+            {/* onSubmit listen to request pets */}
+            <form onSubmit={e => {
+                e.preventDefault();
+                requestPets();
+            }}>
                 <label htmlFor="location">
                     Location
                     {/* Controlled input, onChange is in input tag. Uncontrolled is if onSubmit is in form tag */}
