@@ -1,14 +1,58 @@
+import { useState } from "react";
+
+const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
+
 const SearchParams = () => {
-    const location = "Seattle, WA";
+    const [location, setLocation] = useState('');
+    const [animal, setAnimal] = useState('');
+    const [breed, setBreed] = useState("");
+    // Set empty array for breeds
+    const breeds = [];
+
     return (
         <div className="search-params">
             <form>
                 <label htmlFor="location">
                     Location
-                    <input id="location" value={location} placeholder="Location" />
+                    {/* Controlled input, onChange is in input tag. Uncontrolled is if onSubmit is in form tag */}
+                    <input
+                        id="location"
+                        value={location}
+                        placeholder="Location"
+                        onChange={(e) => setLocation(e.target.value)}
+                    />
                 </label>
+
+                {/* Drop down options */}
+                <label htmlFor="animal">
+                    <select
+                        id="animal"
+                        value={animal}
+                        onChange={(e) => {
+                            setAnimal(e.target.value);
+                            setBreed("");
+                        }}
+                        onBlur={(e) => {
+                            setAnimal(e.target.value);
+                            setBreed("");
+                        }}
+                    >
+                        <option />
+                        {ANIMALS.map((animal) => (
+                            <option key={animal} value={animal}>
+                                {animal}
+                            </option>
+                        ))}
+                    </select>
+                </label>
+
                 <button>Submit</button>
             </form>
+
+            {/* One way data-binding. Location passed from useState 
+            <div>
+                Location: {location}
+            </div> */}
         </div>
     );
 };

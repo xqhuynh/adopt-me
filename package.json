@@ -21,7 +21,6 @@
   "homepage": "https://github.com/xqhuynh/adopt-me#readme",
   "devDependencies": {
     "parcel": "^2.7.0",
-    "prettier": "^2.7.1",
     "process": "^0.11.10"
   },
   "dependencies": {
