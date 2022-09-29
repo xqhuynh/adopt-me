@@ -3,8 +3,8 @@ import { useState } from "react";
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 const SearchParams = () => {
-    const [location, setLocation] = useState('');
-    const [animal, setAnimal] = useState('');
+    const [location, setLocation] = useState("");
+    const [animal, setAnimal] = useState("");
     const [breed, setBreed] = useState("");
     // Set empty array for breeds
     const breeds = [];
@@ -37,10 +37,31 @@ const SearchParams = () => {
                             setBreed("");
                         }}
                     >
+                        {/* Optional but allows the first selection to be empty */}
                         <option />
                         {ANIMALS.map((animal) => (
                             <option key={animal} value={animal}>
                                 {animal}
+                            </option>
+                        ))}
+                    </select>
+                </label>
+
+                {/* Breed  */}
+                <label htmlFor="breed">
+                    Breed
+                    <select
+                        disabled={!breeds.length}
+                        id="breed"
+                        value={breed}
+                        onChange={(e) => setBreed(e.target.value)}
+                        onBlur={(e) => setBreed(e.target.value)}
+                    >
+                        {/* Optional but allows the first selection to be empty */}
+                        <option />
+                        {breeds.map((breed) => (
+                            <option key={breed} value={breed}>
+                                {breed}
                             </option>
                         ))}
                     </select>
