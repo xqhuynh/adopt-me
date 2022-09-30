@@ -29,7 +29,7 @@ const SearchParams = () => {
 
     return (
         <div className="search-params">
-            {/* onSubmit listen to request pets */}
+            {/* onSubmit listen to request pets, preventDefault will prevent hot reload */}
             <form onSubmit={e => {
                 e.preventDefault();
                 requestPets();
