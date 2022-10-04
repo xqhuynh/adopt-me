@@ -2,7 +2,6 @@ import Carousel from "./Carousel";
 import { Component } from "react";
 import { useParams } from "react-router-dom";
 
-// const { animal, breed, city, state, description, name, images } = this.state;
 
 // Class component 
 class Details extends Component {
@@ -29,11 +28,12 @@ class Details extends Component {
         }
 
         // Destructure - instead of this.state.animal, etc. 
-        const { animal, breed, city, state, description, name } = this.state;
+        const { animal, breed, city, state, description, name, images } = this.state;
 
         // Return mark up
         return (
             <div className="details">
+                <Carousel images={images} />
                 <div>
                     <h1>{name}</h1>
                     <h2>{`${animal} — ${breed} — ${city}, ${state}`}</h2>
