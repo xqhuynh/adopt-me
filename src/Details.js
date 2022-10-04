@@ -1,12 +1,18 @@
+import Carousel from "./Carousel";
 import { Component } from "react";
 import { useParams } from "react-router-dom";
 
+// const { animal, breed, city, state, description, name, images } = this.state;
+
 // Class component 
 class Details extends Component {
-    constructor() {
-        super();
-        this.state = { loading: true };
-    }
+
+    // constructor() {
+    //     super();
+    //     this.state = { loading: true };
+    // }
+
+    state = { loading: true };
 
     // In place of useEffect, after first render
     async componentDidMount() {
