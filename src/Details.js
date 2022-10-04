@@ -2,6 +2,7 @@ import Carousel from "./Carousel";
 import { Component } from "react";
 import { useParams } from "react-router-dom";
 import ErrorBoundary from "./ErrorBoundary";
+import ThemeContext from "./ThemeContext";
 
 // Class component 
 class Details extends Component {
@@ -40,7 +41,11 @@ class Details extends Component {
                 <div>
                     <h1>{name}</h1>
                     <h2>{`${animal} — ${breed} — ${city}, ${state}`}</h2>
-                    <button>Adopt {name}</button>
+                    <ThemeContext.Consumer>
+                        {([theme]) => (
+                            <button style={{ backgroundColor: theme }}>Adopt {name}</button>
+                        )}
+                    </ThemeContext.Consumer>
                     <p>{description}</p>
                 </div>
             </div>
@@ -51,9 +56,11 @@ class Details extends Component {
 // useParams for class component
 const WrappedDetails = () => {
     const params = useParams();
-    <ErrorBoundary>
-        return <Details params={params} />
-    </ErrorBoundary>
+    return (
+        <ErrorBoundary>
+            <Details params={params} />
+        </ErrorBoundary>
+    )
 };
 
 export default WrappedDetails;
