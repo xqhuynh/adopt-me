@@ -8,6 +8,7 @@ class Details extends Component {
         this.state = { loading: true };
     }
 
+    // In place of useEffect, after first render
     async componentDidMount() {
         const res = await fetch(
             `http://pets-v2.dev-apis.com/pets?id=${this.props.params.id}`
@@ -21,8 +22,10 @@ class Details extends Component {
             return <h2>loading … </h2>;
         }
 
+        // Destructure - instead of this.state.animal, etc. 
         const { animal, breed, city, state, description, name } = this.state;
 
+        // Return mark up
         return (
             <div className="details">
                 <div>
@@ -36,6 +39,7 @@ class Details extends Component {
     }
 }
 
+// useParams for class component
 const WrappedDetails = () => {
     const params = useParams();
     return <Details params={params} />
