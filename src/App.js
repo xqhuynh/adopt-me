@@ -6,6 +6,7 @@ import { StrictMode, useState } from "react";
 import ThemeContext from "./ThemeContext";
 
 const App = () => {
+  // This is the default submit button background color
   const theme = useState("darkblue");
 
   return (
