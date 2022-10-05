@@ -18,8 +18,6 @@ Clicking on adopt the pet and selecting 'yes' will take the user to PetFinder.
 
 * [![React][React.js]][React-url]
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -43,11 +41,9 @@ _Below is an example of how you can instruct your audience on installing and set
 2. Install npm ```npm install```
 3. Start up the project w/a script ```npm run dev```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
 A special thanks to Front End Masters.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
