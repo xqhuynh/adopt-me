@@ -13,6 +13,7 @@ const App = () => {
     <StrictMode>
       <ThemeContext.Provider value={theme}>
         <BrowserRouter>
+          {/* Takes user back to home page */}
           <header>
             <Link to="/">Adopt Me!</Link>
           </header>
