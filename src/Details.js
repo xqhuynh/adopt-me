@@ -27,7 +27,7 @@ class Details extends Component {
         this.setState(Object.assign({ loading: false }, json.pets[0]));
     }
 
-    // Toggle modal
+    // Toggle modal function
     toggleModal = () => this.setState({ showModal: !this.state.showModal });
 
     render() {
